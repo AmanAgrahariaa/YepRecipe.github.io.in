@@ -29,7 +29,7 @@ exports.homepage = async(req,res) => {
 */
 exports.exploreCategories = async(req, res) => {
   try {
-    const limitNumber = 20;
+    const limitNumber = 10;
     const categories = await Category.find({}).limit(limitNumber);
     res.render('categories', { title: 'Cooking Blog - Categoreis', categories } );
   } catch (error) {
@@ -45,7 +45,7 @@ exports.exploreCategories = async(req, res) => {
 exports.exploreCategoriesById = async(req, res) => { 
   try {
     let categoryId = req.params.id;
-    const limitNumber = 20;
+    const limitNumber = 10;
     const categoryById = await Recipe.find({ 'category': categoryId }).limit(limitNumber);
     res.render('categories', { title: 'Cooking Blog - Categoreis', categoryById } );
   } catch (error) {
